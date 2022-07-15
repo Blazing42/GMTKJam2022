@@ -71,14 +71,14 @@ public class Grid<TGridObject>
     //converts the cartesian xy coordinates that are used in the code to isometric positions they will be displayed in the world
     public Vector3 GetWorldPosition(int x, int y)
     {
-        return new Vector3(x,y) * cellsize;
+        return new Vector3(x,0,y) * cellsize;
     }
 
     //converts the world position isometric coordinate to get the cartesian xy coordinates that are used in the code
    public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt(worldPosition.x / cellsize);
-        y = Mathf.FloorToInt(worldPosition.y / cellsize);
+        y = Mathf.FloorToInt(worldPosition.z / cellsize);
     }
 
     //uses the private set method and the converstion method to directly set the value of the grid tile that was clicked on 
