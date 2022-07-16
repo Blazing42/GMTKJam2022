@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0.6f;
     [SerializeField] float RayDist = 0f;
+    [SerializeField] LayerMask layerMask;
 
     [SerializeField] AudioClip rollSFX;
     [SerializeField] float volume = 0.5f;
@@ -57,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         }
-
     }
     void snap()
     {
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void move(Vector3 MoveDirection, Vector3 TurnAxis, float input)
     {
-        if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist))
+        if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist, layerMask, QueryTriggerInteraction.Ignore))
         {
             targetPosition = transform.position + MoveDirection * input;
             startPosition = transform.position;
