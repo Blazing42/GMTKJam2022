@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist, layerMask, QueryTriggerInteraction.Ignore))
         {
-            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, 0.5f);
+            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, volume);
 
             targetPosition = transform.position + MoveDirection * input;
             startPosition = transform.position;
