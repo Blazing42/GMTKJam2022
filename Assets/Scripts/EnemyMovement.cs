@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     NavMeshAgent navAgent;
-    Transform player;
+    GameObject player;
     public LayerMask whatIsPlayer;
     public LayerMask whatIsGround;
 
@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Awake()
     {
-        player = GameObject.Find("PlayerPrefab").transform;
+        player = GameObject.Find("player");
         navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Chasing();
         }
-        if(playerInAttackRange && playerInSight)
+        if(playerInAttackRange)
         {
             Attacking();
         }
@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Chasing()
     {
-        navAgent.SetDestination(player.position);
+        navAgent.SetDestination(player.transform.position);
     }
 
     void Attacking()
