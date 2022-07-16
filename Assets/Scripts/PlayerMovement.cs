@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
             if (Vector3.Distance(startPosition, transform.position) > 1f)
             {
                 snap();
+                return;
             }
 
             transform.position += (targetPosition - startPosition) * moveSpeed * Time.deltaTime;
@@ -63,19 +64,7 @@ public class PlayerMovement : MonoBehaviour
     void snap()
     {
         transform.position = targetPosition;
-        transform.position = new Vector3(
-        Mathf.Round(transform.position.x),
-        Mathf.Round(transform.position.y),
-        Mathf.Round(transform.position.z)
-        );
         transform.rotation = targetRotation;
         moving = false;
-        return;
     }
-
-    private void OnDrawGizmos()
-    {
-
-    }
-   
 }
