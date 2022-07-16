@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             move(Vector3.right, Vector3.forward, input);
             AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX);
+            return;
         }
 
     }

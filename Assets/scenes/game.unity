@@ -524,7 +524,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -911,6 +911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1745734669686855847, guid: eda5ac062479c5f44a8a99e25cbcbdf5,
+        type: 3}
+      propertyPath: endPoint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745734669686855847, guid: eda5ac062479c5f44a8a99e25cbcbdf5,
+        type: 3}
+      propertyPath: startPoint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1745734669686855851, guid: eda5ac062479c5f44a8a99e25cbcbdf5,
         type: 3}
       propertyPath: m_RootOrder
@@ -924,7 +934,7 @@ PrefabInstance:
     - target: {fileID: 1745734669686855851, guid: eda5ac062479c5f44a8a99e25cbcbdf5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1745734669686855851, guid: eda5ac062479c5f44a8a99e25cbcbdf5,
         type: 3}
