@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0.6f;
+    [SerializeField] float RayDist = 0f;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -38,28 +39,16 @@ public class PlayerMovement : MonoBehaviour
         float input = Input.GetAxisRaw("Vertical");
         if (input != 0)
         {
-            float inputSign = Mathf.Sign(input);
-            targetPosition = transform.position + Vector3.forward * inputSign;
-            startPosition = transform.position;
-            startRotation = transform.rotation;
-            transform.Rotate(Vector3.right, inputSign * 90, Space.World);
-            targetRotation = transform.rotation;
-            moving = true;
+            move(Vector3.forward, Vector3.left, input);
             return;
         }
 
         input = Input.GetAxisRaw("Horizontal");
         if (input != 0)
         {
-            float inputSign = Mathf.Sign(input);
-            targetPosition = transform.position + Vector3.right * inputSign;
-            startPosition = transform.position;
-            startRotation = transform.rotation;
-            transform.Rotate(Vector3.forward, -inputSign * 90, Space.World);
-            targetRotation = transform.rotation;
-            moving = true;
-            return;
+            move(Vector3.right, Vector3.forward, input);
         }
+
     }
     void snap()
     {
@@ -67,4 +56,16 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = targetRotation;
         moving = false;
     }
+    void move(Vector3 MoveDirection, Vector3 TurnAxis, float input)
+    {
+        if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist))
+        {
+            targetPosition = transform.position + MoveDirection * input;
+            startPosition = transform.position;
+            startRotation = transform.rotation;
+            transform.Rotate(TurnAxis, -input * 90, Space.World);
+            targetRotation = transform.rotation;
+            moving = true;
+        }
+     }
 }
