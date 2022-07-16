@@ -817,31 +817,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 263071223471047382, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
-        type: 3}
-      propertyPath: RayDist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 263071223471047382, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
-        type: 3}
-      propertyPath: rollSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: a28ad16d3d5e40144b836b66f364fa98, type: 3}
-    - target: {fileID: 300655541370479907, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1110124335962767257, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
-        type: 3}
-      propertyPath: m_Name
-      value: box
-      objectReference: {fileID: 0}
-    - target: {fileID: 1470152889819995724, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1819c2d6efbc18748a467fd97f1cb3e7, type: 2}
     - target: {fileID: 7736459118810255710, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
       propertyPath: m_RootOrder

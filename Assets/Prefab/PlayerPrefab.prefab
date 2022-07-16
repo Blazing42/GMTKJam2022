@@ -52,7 +52,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d14c1ed23a6476042aa4e7514228b077,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d14c1ed23a6476042aa4e7514228b077,
         type: 3}
@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d14c1ed23a6476042aa4e7514228b077,
         type: 3}
       propertyPath: m_Name
-      value: dice
+      value: box
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14c1ed23a6476042aa4e7514228b077, type: 3}
@@ -131,3 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  RayDist: 1
+  rollSFX: {fileID: 8300000, guid: a28ad16d3d5e40144b836b66f364fa98, type: 3}
+  volume: 0.5

@@ -27,10 +27,10 @@ public class AudioSystem : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayAudioCLip(AudioClip sfx)
+    public void PlayAudioCLip(AudioClip sfx, float volume)
     {
         if(audioSource != null)
-        audioSource.PlayOneShot(sfx);
+        audioSource.PlayOneShot(sfx, volume);
     }
 
 }

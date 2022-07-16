@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float RayDist = 0f;
 
     [SerializeField] AudioClip rollSFX;
+    [SerializeField] float volume = 0.5f;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -44,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.forward, Vector3.left, input);
-            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX);
             return;
         }
 
@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.right, Vector3.forward, input);
-            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX);
         }
 
     }
@@ -66,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist))
         {
+            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, volume);
+
             targetPosition = transform.position + MoveDirection * input;
             startPosition = transform.position;
             startRotation = transform.rotation;
