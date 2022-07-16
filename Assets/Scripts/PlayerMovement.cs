@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.forward, Vector3.left, input);
-            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, 0.5f);
             return;
         }
 
@@ -54,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.right, Vector3.forward, input);
-            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, 0.5f);
             return;
 
         }
@@ -69,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Physics.Raycast(transform.position, MoveDirection * input, RayDist, layerMask, QueryTriggerInteraction.Ignore))
         {
+            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX, 0.5f);
+
             targetPosition = transform.position + MoveDirection * input;
             startPosition = transform.position;
             startRotation = transform.rotation;
