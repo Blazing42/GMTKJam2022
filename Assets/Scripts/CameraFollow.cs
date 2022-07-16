@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        Vector3 newpos = Vector3.Lerp(transform.position, FollowObject.transform.position + Offset, 1 - Mathf.Pow(1 - Speed, Time.deltaTime / 60));
+        Vector3 newpos = Vector3.Lerp(transform.position, FollowObject.transform.position + Offset, 1 - Mathf.Pow(1 - Speed, Time.deltaTime * 60));
         transform.position = newpos;
     }
 }
