@@ -29,16 +29,20 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position += (targetPosition - startPosition) * moveSpeed * Time.deltaTime;
+            float lerpAmount = Vector3.Distance(targetPosition, transform.position);
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, 1 - lerpAmount);
             return;
         }
 
         float input = Input.GetAxisRaw("Vertical");
         if (input != 0)
         {
-            targetPosition = transform.position + Vector3.forward * input;
+            float inputSign = Mathf.Sign(input);
+            targetPosition = transform.position + Vector3.forward * inputSign;
             startPosition = transform.position;
-            //transform.eulerAngles = transform.eulerAngles + new Vector3(90 * input, 0, 0);
-            transform.Rotate(Vector3.right, input * 90, Space.World);
+            startRotation = transform.rotation;
+            transform.Rotate(Vector3.right, inputSign * 90, Space.World);
+            targetRotation = transform.rotation;
             moving = true;
             return;
         }
@@ -46,13 +50,12 @@ public class PlayerMovement : MonoBehaviour
         input = Input.GetAxisRaw("Horizontal");
         if (input != 0)
         {
-            targetPosition = transform.position + Vector3.right * input;
+            float inputSign = Mathf.Sign(input);
+            targetPosition = transform.position + Vector3.right * inputSign;
             startPosition = transform.position;
-            //transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, 90 * input);
-            {
-                transform.Rotate(Vector3.forward, -input * 90, Space.World);
-            }
-            
+            startRotation = transform.rotation;
+            transform.Rotate(Vector3.forward, -inputSign * 90, Space.World);
+            targetRotation = transform.rotation;
             moving = true;
             return;
         }
@@ -60,14 +63,19 @@ public class PlayerMovement : MonoBehaviour
     void snap()
     {
         transform.position = targetPosition;
+        transform.position = new Vector3(
+        Mathf.Round(transform.position.x),
+        Mathf.Round(transform.position.y),
+        Mathf.Round(transform.position.z)
+        );
+        transform.rotation = targetRotation;
         moving = false;
         return;
     }
 
     private void OnDrawGizmos()
     {
-        Debug.DrawLine(transform.position, transform.position + transform.up, Color.red);
-        Debug.DrawLine(transform.position, transform.position + transform.right, Color.green);
+
     }
    
 }
