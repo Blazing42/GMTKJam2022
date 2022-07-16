@@ -37,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
         {
             targetPosition = transform.position + Vector3.forward * input;
             startPosition = transform.position;
-            transform.eulerAngles = transform.eulerAngles + new Vector3(90 * input, 0, 0);
+            //transform.eulerAngles = transform.eulerAngles + new Vector3(90 * input, 0, 0);
+            transform.Rotate(Vector3.right, input * 90, Space.World);
             moving = true;
             return;
         }
@@ -47,7 +48,11 @@ public class PlayerMovement : MonoBehaviour
         {
             targetPosition = transform.position + Vector3.right * input;
             startPosition = transform.position;
-            transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, 90 * input);
+            //transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, 90 * input);
+            {
+                transform.Rotate(Vector3.forward, -input * 90, Space.World);
+            }
+            
             moving = true;
             return;
         }
@@ -64,4 +69,5 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + transform.up, Color.red);
         Debug.DrawLine(transform.position, transform.position + transform.right, Color.green);
     }
+   
 }
