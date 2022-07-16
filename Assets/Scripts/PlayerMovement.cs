@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0.6f;
     [SerializeField] float RayDist = 0f;
+
+    [SerializeField] AudioClip rollSFX;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -33,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position += (targetPosition - startPosition) * moveSpeed * Time.deltaTime;
             float lerpAmount = Vector3.Distance(targetPosition, transform.position);
             transform.rotation = Quaternion.Lerp(startRotation, targetRotation, 1 - lerpAmount);
+            
             return;
         }
 
@@ -40,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.forward, Vector3.left, input);
+            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX);
             return;
         }
 
@@ -47,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (input != 0)
         {
             move(Vector3.right, Vector3.forward, input);
+            AudioSystem.AudioSystemInstance.PlayAudioCLip(rollSFX);
         }
 
     }
