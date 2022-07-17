@@ -119,6 +119,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsBullet:
+    serializedVersion: 2
+    m_Bits: 256
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 50
   timeBetweenAttacks: 1
@@ -126,6 +129,7 @@ MonoBehaviour:
   attackRange: 1
   playerInSight: 0
   playerInAttackRange: 0
+  bulletHit: 0
   spawner: {fileID: 0}
 --- !u!195 &2359516932076344212
 NavMeshAgent:
