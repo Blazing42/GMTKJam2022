@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Quaternion startRotation;
 
     private bool moving = false;
+    int livesRemaining = 4;
 
     private void Awake()
     {
@@ -77,4 +78,19 @@ public class PlayerMovement : MonoBehaviour
             moving = true;
         }
      }
+
+    public void loseLife()
+    {
+        livesRemaining -= 1;
+        UIController.UIControllerInstance.LoseLife();
+        if(livesRemaining <= 0)
+        {
+            Invoke(nameof(LoseGame),2f/* time for game over sounds and effects etc*/);
+        }
+    }
+
+    void LoseGame()
+    {
+
+    }
 }

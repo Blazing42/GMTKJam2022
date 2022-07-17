@@ -12,10 +12,12 @@ public class EnemySpawner : MonoBehaviour
     public float spawnTimer = 5;
     int enemies = 0;
 
+    public List<GameObject> enemyObj;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyObj = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -39,14 +41,25 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void AddEnemy(GameObject obj)
+    {
+        enemyObj.Add(obj);
+    }
+
+    public void RemoveEnemy(GameObject obj)
+    {
+        enemyObj.Remove(obj);
+    }
+
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
-        enemies++;
-        /*if(enemies <= 10)
-        {*/
+        var obj = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+        obj.GetComponent<EnemyMovement>().spawner = this;
+        AddEnemy(obj);
+        if(enemyObj.Count < 20)
+        {
             Invoke(nameof(EnemySpawnTimerReset), spawnTimer);
-        //}
+        }
         
     }
 
@@ -61,6 +74,5 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnTimer = spawnTimer - 1;
         }
-        
     }
 }

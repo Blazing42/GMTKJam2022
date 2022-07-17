@@ -27,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
     public bool playerInSight;
     public bool playerInAttackRange;
 
+    public EnemySpawner spawner;
+
     public void Awake()
     {
         player = GameObject.Find("player");
@@ -107,5 +109,16 @@ public class EnemyMovement : MonoBehaviour
     void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    public void GetHit()
+    {
+        spawner.RemoveEnemy(this.gameObject);
+        Invoke(nameof(Destroy), 2f /*explosion and sfx time*/);
+    }
+
+    private void Destroy()
+    {
+        GameObject.Destroy(this);
     }
 }
