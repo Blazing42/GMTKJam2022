@@ -48,7 +48,6 @@ public class EnemySpawner : MonoBehaviour
     public void RemoveEnemy(GameObject obj)
     {
         enemyObj.Remove(obj);
-        Destroy(obj);
     }
 
     void SpawnEnemy()
