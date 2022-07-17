@@ -100,7 +100,10 @@ public class EnemyMovement : MonoBehaviour
         navAgent.SetDestination(transform.position);
         if (!alreadyAttacked)
         {
-            //AttackCode here
+            if(Vector3.Distance(player.transform.position, this.transform.position) < 2f)
+            {
+                player.GetComponent<PlayerMovement>().loseLife();
+            }
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

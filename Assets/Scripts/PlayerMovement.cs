@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool moving = false;
     int livesRemaining = 4;
+    bool damaged;
 
     private void Awake()
     {
@@ -81,16 +82,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void loseLife()
     {
-        livesRemaining -= 1;
-        UIController.UIControllerInstance.LoseLife();
-        if(livesRemaining <= 0)
+        if(damaged == false)
         {
-            Invoke(nameof(LoseGame),2f/* time for game over sounds and effects etc*/);
+            livesRemaining -= 1;
+            UIController.UIControllerInstance.LoseLife();
+            damaged = true;
+            Invoke(nameof(InvincibleForABitAfterTakingLife), 2f);
+            if(livesRemaining <= 0)
+            {
+                Invoke(nameof(LoseGame),2f/* time for game over sounds and effects etc*/);
+            }
         }
+        
+    }
+
+    void InvincibleForABitAfterTakingLife()
+    {
+        damaged = false;
     }
 
     void LoseGame()
     {
-
+        //change to game over screen
     }
 }
