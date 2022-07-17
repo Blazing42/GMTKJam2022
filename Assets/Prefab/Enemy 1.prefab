@@ -119,7 +119,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 10
+  walkPointRange: 20
   timeBetweenAttacks: 1
   sightRange: 5
   attackRange: 2
