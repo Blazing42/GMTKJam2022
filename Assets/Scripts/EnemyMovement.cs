@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     GameObject player;
     public LayerMask whatIsPlayer;
     public LayerMask whatIsGround;
-    public LayerMask whatIsBullet;
+
 
     //patrolling
     public Vector3 walkPoint;
@@ -27,7 +27,6 @@ public class EnemyMovement : MonoBehaviour
 
     public bool playerInSight;
     public bool playerInAttackRange;
-    public bool bulletHit;
     
 
     public EnemySpawner spawner;
@@ -49,7 +48,6 @@ public class EnemyMovement : MonoBehaviour
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        bulletHit = Physics.CheckSphere(transform.position, 1f, whatIsBullet);
 
         if(!playerInSight && !playerInAttackRange)
         {
@@ -63,11 +61,6 @@ public class EnemyMovement : MonoBehaviour
         {
             Attacking();
         }
-
-        /*if (bulletHit)
-        {
-            GetHit();
-        }*/
     }
 
     void Patrolling()
@@ -127,12 +120,10 @@ public class EnemyMovement : MonoBehaviour
     {
         spawner.RemoveEnemy(this.gameObject);
         UIController.UIControllerInstance.TickUpKillcount();
-        bulletHit = false;
-        Invoke(nameof(Destroy), 0.2f /*explosion and sfx time*/);
     }
 
     private void Destroy()
     {
-        GameObject.Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

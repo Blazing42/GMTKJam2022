@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     int killCount = 0;
     int livesLeft = 4;
     EnemySpawner enemySpawner;
+    public TimerandKillSave save;
 
     public static UIController UIControllerInstance { get; private set; }
 
@@ -51,8 +52,9 @@ public class UIController : MonoBehaviour
         int secondsInt = (int)(t % 60);
         string seconds = secondsInt.ToString();
         timer.text = minutes + " : " + seconds;
+        save.timer = minutes + " : " + seconds;
 
-        if(secondsInt == 0 && minutesInt > 0)
+        if (secondsInt == 0 && minutesInt > 0)
         {
             enemySpawner.TickUpDifficulty();
         }
@@ -74,6 +76,7 @@ public class UIController : MonoBehaviour
     {
         killCount++;
         enemiesKilled.text = "Kills : " + killCount;
+        save.kills = killCount;
     }
 
 }
