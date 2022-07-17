@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool moving = false;
     public int livesRemaining = 4;
     public int maxHealth = 4;
-    bool damaged;
+    public bool damaged;
 
     private void Awake()
     {
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }  
     }
 
-    void InvincibleForABitAfterTakingLife()
+    public void InvincibleForABitAfterTakingLife()
     {
         damaged = false;
     }

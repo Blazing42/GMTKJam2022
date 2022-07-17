@@ -64,10 +64,10 @@ public class EnemyMovement : MonoBehaviour
             Attacking();
         }
 
-        if (bulletHit)
+        /*if (bulletHit)
         {
             GetHit();
-        }
+        }*/
     }
 
     void Patrolling()

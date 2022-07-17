@@ -8,6 +8,7 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] EnemySpawner enemySpawner;
     public float explosionRange;
     public GameObject bulletPrefab;
+    public GameObject minePrefab;
     public float attackCooldown = 1f;
     bool cantAttack;
 
@@ -41,7 +42,7 @@ public class PlayerAttacks : MonoBehaviour
         
         if (DiceNumber == 2)
         {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Instantiate(minePrefab, transform.position, Quaternion.identity);
             Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
@@ -53,7 +54,8 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (DiceNumber == 4)
         {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Player.damaged = true;
+            Invoke(nameof(ResetInvulnerability), 2f);
             Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
@@ -82,5 +84,10 @@ public class PlayerAttacks : MonoBehaviour
     void ResetAttackTimer()
     {
         cantAttack = false;
+    }
+
+   void ResetInvulnerability()
+    {
+        Player.InvincibleForABitAfterTakingLife();
     }
 }

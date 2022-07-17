@@ -21,4 +21,15 @@ public class bullet : MonoBehaviour
         GameObject.Destroy(this.gameObject);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject collidedObj = collision.gameObject;
+        if (collidedObj.tag == "Enemy")
+        {
+            Debug.Log("hit");
+            collidedObj.GetComponent<EnemyMovement>().GetHit();
+            BulletTime();
+        }
+    }
+
 }
