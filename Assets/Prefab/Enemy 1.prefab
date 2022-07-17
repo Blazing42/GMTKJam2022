@@ -119,9 +119,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  whatIsBullet:
-    serializedVersion: 2
-    m_Bits: 256
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 50
   timeBetweenAttacks: 1
@@ -129,8 +126,10 @@ MonoBehaviour:
   attackRange: 1
   playerInSight: 0
   playerInAttackRange: 0
-  bulletHit: 0
   spawner: {fileID: 0}
+  deathParticles: {fileID: 9002465890515343774, guid: bda2a63d48556584880b7f22d71f8bbf,
+    type: 3}
+  pop: {fileID: 8300000, guid: f7bc8de2933306d44917d8bc3877cb1b, type: 3}
 --- !u!195 &2359516932076344212
 NavMeshAgent:
   m_ObjectHideFlags: 0

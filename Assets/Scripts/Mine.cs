@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Mine : MonoBehaviour
 {
     [SerializeField] GameObject ExplosionPrefab;
+    public AudioClip pop;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,8 +15,9 @@ public class Mine : MonoBehaviour
             Debug.Log("hit");
             other.gameObject.GetComponent<EnemyMovement>().GetHit();
         }
-        //Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
-        Invoke(nameof(Destroy), 0.1f);
+        AudioSystem.AudioSystemInstance.PlayAudioCLip(pop, 0.7f);
+        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+        Invoke(nameof(Destroy), 0.3f);
     }
     private void Destroy()
     {

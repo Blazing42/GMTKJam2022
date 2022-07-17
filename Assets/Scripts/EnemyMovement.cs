@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class EnemyMovement : MonoBehaviour
     
 
     public EnemySpawner spawner;
+    public GameObject deathParticles;
+    public AudioClip pop;
 
     public void Awake()
     {
@@ -120,6 +123,9 @@ public class EnemyMovement : MonoBehaviour
     {
         spawner.RemoveEnemy(this.gameObject);
         UIController.UIControllerInstance.TickUpKillcount();
+        AudioSystem.AudioSystemInstance.PlayAudioCLip(pop, 0.4f);
+        Instantiate(deathParticles, this.transform.position, Quaternion.identity);
+        Invoke(nameof(Destroy), 0.4f);
     }
 
     private void Destroy()

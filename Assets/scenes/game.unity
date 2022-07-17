@@ -1884,6 +1884,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478479270964243704, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
+      propertyPath: bang
+      value: 
+      objectReference: {fileID: 8300000, guid: 90106414cf2c8374787cc1bfa2b8e0b1, type: 3}
+    - target: {fileID: 4478479270964243704, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
+        type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 02e0594e7ec7428428e0cf68d2c4ec3d, type: 3}
+    - target: {fileID: 4478479270964243704, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
+        type: 3}
       propertyPath: minePrefab
       value: 
       objectReference: {fileID: 1843059270479111391, guid: 87ce7590ff990b8469a34d12617d7b16,
@@ -1893,6 +1903,12 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 7284472677078229148, guid: 31e7a0730e186464b8ced328a96bc227,
+        type: 3}
+    - target: {fileID: 4478479270964243704, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
+        type: 3}
+      propertyPath: bangExplosion
+      value: 
+      objectReference: {fileID: 9187867971968692281, guid: cc98d621c61e2c447a712854aee0ac2b,
         type: 3}
     - target: {fileID: 4478479270964243704, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
