@@ -63,11 +63,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!walkPointSet) SetWalkPOint();
         else
+        {
             navAgent.SetDestination(walkPoint);
+        }
+            
 
         Vector3 distanceToWalkpoint = transform.position - walkPoint;
-        if (distanceToWalkpoint.magnitude < 1f)
+        if (distanceToWalkpoint.magnitude < 2f)
+        {
             walkPointSet = false;
+        }
+            
     }
 
     void SetWalkPOint()

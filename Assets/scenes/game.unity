@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 910053966}
-  lives: {fileID: 0}
-  enemiesKilled: {fileID: 0}
+  lives: {fileID: 1714024795}
+  enemiesKilled: {fileID: 556806800}
   attacktype: {fileID: 0}
 --- !u!1001 &250848415
 PrefabInstance:
@@ -1635,7 +1635,7 @@ PrefabInstance:
     - target: {fileID: 221128271151115913, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 338117471740892233, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
@@ -1656,6 +1656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110124335962767257, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2507844326413133806, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}

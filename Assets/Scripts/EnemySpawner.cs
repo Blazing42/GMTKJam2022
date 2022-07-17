@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     Vector3 spawnPoint;
     bool spawnPointSet;
     public LayerMask whatIsGround;
-    public float spawnTimer;
+    public float spawnTimer = 5;
     int enemies = 0;
 
     // Start is called before the first frame update
@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(spawnTimer > 1)
         {
-            spawnTimer --;
+            spawnTimer = spawnTimer - 1;
         }
         
     }
