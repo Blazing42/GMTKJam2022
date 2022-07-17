@@ -21,9 +21,9 @@ public class bullet : MonoBehaviour
         GameObject.Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject collidedObj = collision.gameObject;
+        GameObject collidedObj = other.gameObject;
         if (collidedObj.tag == "Enemy")
         {
             Debug.Log("hit");

@@ -64,6 +64,7 @@ public class PlayerAttacks : MonoBehaviour
             if (Player.livesRemaining != Player.maxHealth)
             {
                 Player.livesRemaining += 1;
+                UIController.UIControllerInstance.GainLife();
             }
             Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;

@@ -62,10 +62,12 @@ public class UIController : MonoBehaviour
     {
         livesLeft--;
         lives.text = "Lives : " + livesLeft;
-        if(livesLeft <= 0)
-        {
-            //change to lose screen etc
-        }
+    }
+
+    public void GainLife()
+    {
+        livesLeft++;
+        lives.text = "Lives : " + livesLeft;
     }
 
     public void TickUpKillcount()

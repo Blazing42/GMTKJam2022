@@ -13,7 +13,7 @@ public class Mine : MonoBehaviour
             Debug.Log("hit");
             other.gameObject.GetComponent<EnemyMovement>().GetHit();
         }
-        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+        //Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
         Invoke(nameof(Destroy), 0.1f);
     }
     private void Destroy()
