@@ -997,7 +997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828701286}
   - component: {fileID: 828701285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1846,6 +1846,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 263071223471047382, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 503
       objectReference: {fileID: 0}
     - target: {fileID: 338117471740892233, guid: 8c9bb0d16946a37469a5f30aeeea4fe0,
         type: 3}
