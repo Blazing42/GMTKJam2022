@@ -18,13 +18,15 @@ public class PlayerMovement : MonoBehaviour
     private Quaternion startRotation;
 
     private bool moving = false;
-    int livesRemaining = 4;
+    public int livesRemaining = 4;
+    public int maxHealth = 4;
     bool damaged;
 
     private void Awake()
     {
         targetPosition = transform.position;
         targetRotation = transform.rotation;
+        livesRemaining = maxHealth;
     }
 
     void Update()
