@@ -5,16 +5,22 @@ using UnityEngine;
 public class PlayerAttacks : MonoBehaviour
 {
     public int DiceNumber;
+    [SerializeField] EnemySpawner enemySpawner;
+    public float explosionRange;
 
     private PlayerMovement Player;
-
+    private void Start()
+    {
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        Player = GetComponent<PlayerMovement>();
+    }
     void Update()
     {
         if (Input.GetAxisRaw("Fire1") == 1)
         {
             Attack();
+            Debug.Log("attack");
         }
-        Player = GetComponent<PlayerMovement>();
     }
 
     void Attack()
@@ -42,6 +48,13 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (DiceNumber == 6)
         {
+            foreach(GameObject enemy in enemySpawner.enemyObj)
+            {
+                if(Vector3.Distance(this.transform.position, enemy.transform.position) <= explosionRange)
+                {
+                    enemy.GetComponent<EnemyMovement>().GetHit();
+                }
+            }
             return;
         }
     }

@@ -117,11 +117,12 @@ public class EnemyMovement : MonoBehaviour
     public void GetHit()
     {
         spawner.RemoveEnemy(this.gameObject);
-        Invoke(nameof(Destroy), 2f /*explosion and sfx time*/);
+        UIController.UIControllerInstance.TickUpKillcount();
+        Invoke(nameof(Destroy), 0.2f /*explosion and sfx time*/);
     }
 
     private void Destroy()
     {
-        GameObject.Destroy(this);
+        GameObject.Destroy(this.gameObject);
     }
 }
