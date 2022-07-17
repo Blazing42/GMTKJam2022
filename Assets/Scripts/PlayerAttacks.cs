@@ -7,6 +7,9 @@ public class PlayerAttacks : MonoBehaviour
     public int DiceNumber;
     [SerializeField] EnemySpawner enemySpawner;
     public float explosionRange;
+    public GameObject bulletPrefab;
+    public float attackCooldown = 1f;
+    bool cantAttack;
 
     private PlayerMovement Player;
     private void Start()
@@ -18,24 +21,40 @@ public class PlayerAttacks : MonoBehaviour
     {
         if (Input.GetAxisRaw("Fire1") == 1)
         {
-            Attack();
-            Debug.Log("attack");
+            if(cantAttack == false)
+            {
+                Attack();
+                Debug.Log("attack");
+                cantAttack = true;
+            }
+            
         }
     }
 
     void Attack()
     {
-        if (DiceNumber == 1) return;
+        if (DiceNumber == 1) 
+        { 
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
+            return; 
+        }
+        
         if (DiceNumber == 2)
         {
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
         if (DiceNumber == 3)
         {
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
         if (DiceNumber == 4)
         {
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
         if (DiceNumber == 5)
@@ -44,6 +63,7 @@ public class PlayerAttacks : MonoBehaviour
             {
                 Player.livesRemaining += 1;
             }
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
         if (DiceNumber == 6)
@@ -55,7 +75,12 @@ public class PlayerAttacks : MonoBehaviour
                     enemy.GetComponent<EnemyMovement>().GetHit();
                 }
             }
+            Invoke(nameof(ResetAttackTimer), attackCooldown);
             return;
         }
+    }
+    void ResetAttackTimer()
+    {
+        cantAttack = false;
     }
 }
