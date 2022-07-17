@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -92,10 +93,9 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(InvincibleForABitAfterTakingLife), 2f);
             if(livesRemaining <= 0)
             {
-                Invoke(nameof(LoseGame),2f/* time for game over sounds and effects etc*/);
+                Invoke(nameof(LoseGame),1f/* time for game over sounds and effects etc*/);
             }
-        }
-        
+        }  
     }
 
     void InvincibleForABitAfterTakingLife()
@@ -105,6 +105,6 @@ public class PlayerMovement : MonoBehaviour
 
     void LoseGame()
     {
-        //change to game over screen
+            SceneManager.LoadScene("GameOver");
     }
 }

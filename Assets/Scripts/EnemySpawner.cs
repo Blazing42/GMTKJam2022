@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     bool spawnPointSet;
     public LayerMask whatIsGround;
     public float spawnTimer = 5;
-    int enemies = 0;
 
     public List<GameObject> enemyObj;
 
