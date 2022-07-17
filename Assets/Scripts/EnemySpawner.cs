@@ -43,15 +43,24 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
         enemies++;
-        if(enemies <= 10)
-        {
+        /*if(enemies <= 10)
+        {*/
             Invoke(nameof(EnemySpawnTimerReset), spawnTimer);
-        }
+        //}
         
     }
 
     void EnemySpawnTimerReset()
     {
         spawnPointSet = false;
+    }
+
+    public void TickUpDifficulty()
+    {
+        if(spawnTimer > 1)
+        {
+            spawnTimer --;
+        }
+        
     }
 }
